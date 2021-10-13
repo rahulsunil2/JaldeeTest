@@ -1,5 +1,3 @@
-from itertools import permutations
-
 def strMix(str_1, str_2):
     new_str = ""
     for i in range(min(len(str_1), len(str_2))):
@@ -14,16 +12,14 @@ def strMix(str_1, str_2):
 
 def findPalindrome(arr):
     res = []
-    for i in arr:
-        for j in arr:
+    for i in range(len(arr)):
+        for j in range(i, len(arr)):
             if i == j:
-                print("Continue", i, j)
                 continue
             else:
-                print("Nope", i, j)
-                temp_str = strMix(i, j)
+                temp_str = strMix(arr[i], arr[j])
                 if temp_str == temp_str[::-1]:
-                    res.append([i, j])
+                    res.append([arr[i], arr[j]])
     return res
 
 
